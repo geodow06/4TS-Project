@@ -1,21 +1,13 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "USER")
@@ -31,35 +23,37 @@ public class User {
 
 	@Column(name = "Password")
 	private String userPassword;
-
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userID", nullable = false, insertable = false, updatable = false)
-	@OnDelete(action = OnDeleteAction.CASCADE)
-	@Column(name = "userAlgs")
-	private List<Algorithm> userAlgs;
-
+	
+	@Column(name = "Email") 
+	private String email;  
+	
+	@Column(name = "groupID") 
+	private Long groupID;
+	
+	@Column(name = "Friends") 
+	private List<String> friends;
+//  Will have to change how the mapping works to accomodate multiple memberships
+//	@Column(name = "Memberships") 
+//	private Set<Long> memberships;  
+	
+	
+	
 	public User() {
 
 	}
 
-	public User(Long userID, String userName, String userPassword, List<Algorithm> userAlgs) {
+	public User(Long userID, String userName, String userPassword, String email, Long groupID, List<String> friends) {
 		super();
 		this.userID = userID;
 		this.userName = userName;
 		this.userPassword = userPassword;
-		this.userAlgs = userAlgs;
+		this.email = email;
+		this.groupID = groupID; 
+		this.friends = friends;
 	}
 
 	public Long getUserID() {
 		return userID;
-	}
-
-	public List<Algorithm> getUserAlgs() {
-		return userAlgs;
-	}
-
-	public void setUserAlgs(List<Algorithm> userAlgs) {
-		this.userAlgs = userAlgs;
 	}
 
 	public void setUserID(Long userID) {
@@ -82,10 +76,41 @@ public class User {
 		this.userPassword = userPassword;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getGroupID() {
+		return groupID;
+	}
+
+	public void setGroupID(Long groupID) {
+		this.groupID = groupID;
+	}
+
+	public List<String> getFriends() {
+		return friends;
+	}
+
+	public void setFriends(List<String> friends) {
+		this.friends = friends;
+	}
+
 	@Override
 	public String toString() {
-		return String.format("User[userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword
-				+ ", userAlgs=" + userAlgs + "]", userID, userName, userPassword, userAlgs);
+		return "User [userID=" + userID + ", userName=" + userName + ", userPassword=" + userPassword + ", email="
+				+ email + ", groupID=" + groupID + ", friends=" + friends + "]";
 	}
+
+	
+
+	
+
+
+
 
 }

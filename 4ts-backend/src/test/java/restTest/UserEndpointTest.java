@@ -16,10 +16,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.qa.business.AlgorithmServiceImpl;
 import com.qa.business.UserServiceImpl;
-import com.qa.persistence.domain.Algorithm;
-import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.domain.User;
 import com.qa.rest.UserController;
 
@@ -29,9 +26,9 @@ public class UserEndpointTest {
 	private static final String testUserName = "username";
 	private static final String testUserPassword = "password";
 	private static final Long testLong = 1L;
-	private static final List<TimeLog> MOCK_TIMELIST = new ArrayList<>();
+
 	private static final List<User> MOCK_USERLIST = new ArrayList<>();
-	private static final List<Algorithm> MOCK_ALGLIST = new ArrayList<>();
+
 	private static final User MOCK_USER = new User();
 	@InjectMocks
 	UserController uCon;
@@ -41,8 +38,6 @@ public class UserEndpointTest {
 
 	@Mock
 	User user;
-	@Mock
-	Algorithm algorithm;
 
 	@Before
 	public void setup() {
@@ -70,28 +65,10 @@ public class UserEndpointTest {
 	}
 
 	@Test
-	public void testDeleteUser() { 
+	public void testDeleteUser() {
 		boolean testBoolean = true;
 		Mockito.when(svc.deleteUser(testLong)).thenReturn(testBoolean);
 		assertEquals(testBoolean, uCon.deleteUser(testLong));
-	}
-
-	@Test
-	public void testGetUserAlgs() {
-
-		Mockito.when(svc.getUserAlgs(testLong)).thenReturn(MOCK_ALGLIST);
-		assertEquals(MOCK_ALGLIST, uCon.getUserAlgs(testLong));
-	}
-
-//	@Test 
-//	public void testGetRandomScramble() { 
-//		Mockito.when(svc.ge)
-//	} 
-
-	@Test
-	public void testGetUserAlgTimes() {
-		Mockito.when(svc.getUserAlgTimes(testLong, testLong)).thenReturn(MOCK_TIMELIST);
-		assertEquals(MOCK_TIMELIST, uCon.getUserAlgTimes(testLong, testLong));
 	}
 
 	@Test

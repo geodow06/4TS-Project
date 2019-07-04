@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.business.TimeLogServiceImpl;
 import com.qa.business.UserServiceImpl;
-import com.qa.persistence.domain.Algorithm;
-import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.domain.User;
 
 @RestController
@@ -50,17 +47,6 @@ public class UserController {
 	public boolean deleteUser(@PathVariable Long userID) {
 
 		return svc.deleteUser(userID);
-	}
-
-	@RequestMapping("/getUserAlgs/{userID}")
-	public List<Algorithm> getUserAlgs(@PathVariable Long userID) {
-
-		return svc.getUserAlgs(userID);
-	}
-
-	@RequestMapping("/getUserAlgTimes/{userID}/{algID}")
-	public List<TimeLog> getUserAlgTimes(@PathVariable Long userID, @PathVariable Long algID) {
-		return svc.getUserAlgTimes(userID, algID);
 	}
 
 	@RequestMapping("logInUser/{userName}/{userPassword}")

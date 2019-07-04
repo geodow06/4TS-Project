@@ -14,11 +14,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import com.qa.business.CustomMethodsServiceImpl;
-import com.qa.business.TimeLogServiceImpl;
-import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.domain.User;
 import com.qa.persistence.repository.CustomMethodsRepository;
-import com.qa.persistence.repository.TimeLogRepository;
 import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)

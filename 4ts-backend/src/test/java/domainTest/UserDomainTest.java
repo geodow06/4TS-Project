@@ -8,30 +8,29 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.qa.persistence.domain.Algorithm;
 import com.qa.persistence.domain.User;
 
 public class UserDomainTest {
 
 	User user;
 
-	List<Algorithm> userAlgs = new ArrayList<Algorithm>();
+//	List<Algorithm> userAlgs = new ArrayList<Algorithm>();
 	Long userID = 1L;
 	String password = "password";
 	String username = "username";
 	Long newUserID = 2L; 
 	String newUserName = "new username";
 	String newUserPassword = "new password"; 
-	List<Algorithm> newUserAlgs = new ArrayList<>();
-	@Before
-	public void setup() {
-		Algorithm alg1 = new Algorithm();
-		Algorithm alg2 = new Algorithm();
-		userAlgs.add(alg1);
-		userAlgs.add(alg2);
-		user = new User(1L, username, password, userAlgs);
-
-	}
+//	List<Algorithm> newUserAlgs = new ArrayList<>();
+//	@Before
+//	public void setup() {
+//		Algorithm alg1 = new Algorithm();
+//		Algorithm alg2 = new Algorithm();
+//		userAlgs.add(alg1);
+//		userAlgs.add(alg2);
+//		user = new User(1L, username, password, userAlgs);
+//
+//	}
 
 
 	
@@ -65,14 +64,14 @@ public class UserDomainTest {
 		user.setUserPassword(newUserPassword); 
 		assertEquals(newUserPassword, user.getUserPassword());
 	}
-	@Test 
-	public void testGetUserAlgs() { 
-		assertEquals(userAlgs, user.getUserAlgs());
-	} 
-	@Test 
-	public void testSetUserAlgs() { 
-		user.setUserAlgs(newUserAlgs); 
-		assertEquals(newUserAlgs, user.getUserAlgs());
-	}
+//	@Test 
+//	public void testGetUserAlgs() { 
+//		assertEquals(userAlgs, user.getUserAlgs());
+//	} 
+//	@Test 
+//	public void testSetUserAlgs() { 
+//		user.setUserAlgs(newUserAlgs); 
+//		assertEquals(newUserAlgs, user.getUserAlgs());
+//	}
 
 }

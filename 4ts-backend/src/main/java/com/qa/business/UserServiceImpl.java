@@ -1,22 +1,10 @@
 package com.qa.business;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-
 import org.springframework.stereotype.Service;
 
-import com.qa.persistence.domain.Algorithm;
-import com.qa.persistence.domain.TimeLog;
 import com.qa.persistence.domain.User;
-import com.qa.persistence.repository.AlgorithmRepository;
 import com.qa.persistence.repository.UserRepository;
 
 @Service
@@ -74,38 +62,22 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean deleteUser(Long userID) {
-		
+
 		userRepo.deleteById(userID);
 		return userRepo.existsById(userID);
 	}
 
 	@Override
-	public List<Algorithm> getUserAlgs(Long userID) {
+	public List<String> getUserFriends(Long userID) {
 		User aUser = getAUser(userID);
-		List<User> allUsers = getAllUsers();
+
 		if (aUser != null) {
 
-			List<Algorithm> algList = aUser.getUserAlgs();
-			return algList;
+			List<String> friendsList = aUser.getFriends();
+			return friendsList;
 		} else {
 			return null;
 		}
-	}
-
-	@Override
-	public List<TimeLog> getUserAlgTimes(Long userID, Long algID) {
-		List<Algorithm> userAlgs = getUserAlgs(userID);
-		List<TimeLog> algTimes = new ArrayList<TimeLog>();
-		for (Algorithm alg : userAlgs) {
-			if (alg.getAlgID() == algID) {
-				algTimes = alg.getTimeLogs();
-
-			} else {
-				continue;
-			}
-		}
-		return algTimes;
-
 	}
 
 	@Override
@@ -114,7 +86,7 @@ public class UserServiceImpl implements UserService {
 
 		for (User user : users) {
 
-			if (user.getUserName().equals(username)&&user.getUserPassword().contentEquals(Password)) {
+			if (user.getUserName().equals(username) && user.getUserPassword().contentEquals(Password)) {
 				return user;
 
 			}
@@ -130,6 +102,12 @@ public class UserServiceImpl implements UserService {
 		User admin = userRepo.findByUserName(username);
 
 		return admin;
+	}
+
+	@Override
+	public List<String> getMutualFriends(Long userID, Long friendID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
