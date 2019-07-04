@@ -27,8 +27,8 @@ public class Group {
 	@Column(name = "groupName") 
 	private String groupName; 
 	
-	@Column(name = "admin") 
-	private String admin;
+//	@Column(name = "admin") 
+//	private String admin;
 	
 	@Column(name ="key") 
 	private String key;
@@ -46,7 +46,7 @@ public class Group {
 		super();
 		this.groupID = groupID;
 		this.groupName = groupName;
-		this.admin = admin; 
+//		this.admin = admin; 
 		this.key = key;
 		this.members = members;
 	}
@@ -77,13 +77,13 @@ public class Group {
 		this.key = key;
 	}
 
-	public String getAdmin() {
-		return admin;
-	}
-
-	public void setAdmin(String admin) {
-		this.admin = admin;
-	}
+//	public String getAdmin() {
+//		return admin;
+//	}
+//
+//	public void setAdmin(String admin) {
+//		this.admin = admin;
+//	}
 	
 	
 	
@@ -97,7 +97,7 @@ public class Group {
 
 	@Override
 	public String toString() {
-		return "Group [groupID=" + groupID + ", groupName=" + groupName + ", admin=" + admin + ", key=" + key
+		return "Group [groupID=" + groupID + ", groupName=" + groupName +  ", key=" + key
 				+ ", members=" + members + "]";
 	}
 

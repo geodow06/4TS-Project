@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface GroupService {
 //	C 
-	public String addGroup(String groupName, String admin, String key); 
+	public String addGroup(String groupName, String creatorName, String key); 
 	
-	public String addMember(Long groupName, String admin, String key); 
+	public String addMember(Long groupName, String creatorName, String key); 
 	
 //	R 
 	public List<String> getMembersNames(Long groupID); 

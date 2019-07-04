@@ -32,7 +32,7 @@ public class User {
 	
 	@Column(name = "Friends") 
 	private List<String> friends;
-//  Will have to change how the mapping works to accomodate multiple memberships
+//  Will have to change how the mapping works to accommodate multiple memberships
 //	@Column(name = "Memberships") 
 //	private Set<Long> memberships;  
 	

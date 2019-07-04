@@ -1,5 +1,7 @@
 package com.qa.persistence.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +18,14 @@ public class Event {
 	@Column(name = "eventID")
 	private Long eventID;
 	
-	@Column(name = "eventName") 
-	private String eventName; 
+	@Column(name = "EventName") 
+	private String eventName;  
+	
+	@Column(name = "Details") 
+	private String details;
+	
+	@Column(name = "Attendees") 
+	private List<String> Attendees; 
+	
 	
 }
